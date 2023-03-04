@@ -1,6 +1,8 @@
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import OnBoarding from "./pages/OnBoarding";
+import Chat from "./pages/Chat";
+import Events from "./pages/Events/Events";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -11,6 +13,9 @@ const App = () => {
         {/* {authToken &&  */}
         <Route path="/dashboard" element={<Dashboard />} />
         {/* {authToken &&  */}
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/events" element={<Events />} />
+
         <Route path="/onboarding" element={<OnBoarding />} />
       </Routes>
     </BrowserRouter>

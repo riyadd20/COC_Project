@@ -1,0 +1,45 @@
+.section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    height: 90vh;
+  }
+  
+  .block {
+    width: 700px;
+    height: 350px;
+    padding: 40px;
+    background-color: rgb(100, 38, 57);
+    color: white;
+  }
+
+  .block1 {
+    width: 700px;
+    height: 250px;
+    /* padding: 40px; */
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .sec-container {
+    width: 500px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+  h3{
+    color: rgb(218, 218, 218);
+    font-weight: 200;
+  }
+
+  button{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    margin-bottom: 30px;
+  }
