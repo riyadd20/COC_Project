@@ -7,11 +7,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         {/* {authToken &&  */}
-        <Route path="/dashboard" element={<Dashboard />} />}
+        <Route path="/dashboard" element={<Dashboard />} />
         {/* {authToken &&  */}
-        <Route path="/onboarding" element={<OnBoarding />} />}
+        <Route path="/onboarding" element={<OnBoarding />} />
       </Routes>
     </BrowserRouter>
   );
