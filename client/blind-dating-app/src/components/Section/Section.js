@@ -68,7 +68,7 @@ const section = () => {
               </div>
             </div>
             <div className="right-container block">
-              <div className="container">
+              <div className="sec-container">
                 <h2>{title}</h2>
                 <h3>{date}</h3>
                 <p>{description}</p>
