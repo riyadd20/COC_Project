@@ -1,108 +1,150 @@
-import ChatContainer from "../components/ChatContainer";
+// import React, { useState } from "react";
+// import MatchCard from "./MatchCard";
+// import "./Dashboard.css";
+
+// const Dashboard = () => {
+//   const [showMatchCard, setShowMatchCard] = useState(false);
+//   const [isMatchingStarted, setIsMatchingStarted] = useState(false);
+//   const [isLoading, setIsLoading] = useState(false);
+
+//   const handleStartMatching = () => {
+//     setIsLoading(true);
+//     setTimeout(() => {
+//       setShowMatchCard(true);
+//       setIsMatchingStarted(true);
+//       setIsLoading(false);
+//     }, 2000); // Replace with your loading time in milliseconds
+//   };
+
+//   return (
+//     <>
+//       <div className="start-matching-button-container">
+//         <button
+//           className={`start-matching-button${showMatchCard ? " card-open" : ""}`}
+//           onClick={handleStartMatching}
+//           disabled={isMatchingStarted}
+//         >
+//           {isLoading ? "Loading..." : isMatchingStarted ? "Matching Started" : "Start Matching"}
+//         </button>
+//         {showMatchCard && (
+//           <div className="match-card-overlay">
+//             <MatchCard
+//               name="John Doe"
+//               age="24"
+//               interests="Hiking, reading, cooking"
+//             />
+//           </div>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Dashboard;
+
+// Perfectly working basic UI
+
+
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import MatchCard from "./MatchCard";
+// import "./Dashboard.css";
+
+// const Dashboard = () => {
+//   const [showMatchCard, setShowMatchCard] = useState(false);
+//   const [isMatchingStarted, setIsMatchingStarted] = useState(false);
+//   const [isLoading, setIsLoading] = useState(false);
+//   const navigate = useNavigate();
+
+//   const handleStartMatching = () => {
+//     setIsLoading(true);
+//     setTimeout(() => {
+//       setShowMatchCard(true);
+//       setIsMatchingStarted(true);
+//       setIsLoading(false);
+//       setTimeout(() => {
+//         navigate("/chat");
+//       }, 2000); // Redirect after 2 seconds
+//     }, 2000); // Replace with your loading time in milliseconds
+//   };
+
+//   return (
+//     <>
+//       <div className="start-matching-button-container">
+//         <button
+//           className={`start-matching-button${showMatchCard ? " card-open" : ""}`}
+//           onClick={handleStartMatching}
+//           disabled={isMatchingStarted}
+//         >
+//           {isLoading ? "Loading..." : isMatchingStarted ? "Matching Started" : "Start Matching"}
+//         </button>
+//         {showMatchCard && (
+//           <div className="match-card-overlay">
+//             <MatchCard
+//               name="John Doe"
+//               age="24"
+//               interests="Hiking, reading, cooking"
+//             />
+//           </div>
+//         )}
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Dashboard;
+
+// backgroundImage
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import MatchCard from "./MatchCard";
 import "./Dashboard.css";
 
+const backgroundImage = "https://imgs.search.brave.com/ljxCqHFnBwXcfQwlQsUL2DztfP6qY2j4uPRkBcUf1E0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaW5kZXBlbmRl/bnQuY28udWsvczNm/cy1wdWJsaWMvdGh1/bWJuYWlscy9pbWFn/ZS8yMDE2LzAzLzE5/LzE4L3dlYi1kYXRp/bmctbWF0Y2gtcmV4/LmpwZw";
+
 const Dashboard = () => {
-  //   const [user, setUser] = useState(null);
-  //   const [genderedUsers, setGenderedUsers] = useState(null);
-  //   const [lastDirection, setLastDirection] = useState();
-  //   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+  const [showMatchCard, setShowMatchCard] = useState(false);
+  const [isMatchingStarted, setIsMatchingStarted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  //   const userId = cookies.UserId;
+  const handleStartMatching = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setShowMatchCard(true);
+      setIsMatchingStarted(true);
+      setIsLoading(false);
+      setTimeout(() => {
+        navigate("/chat");
+      }, 2000); // Redirect after 2 seconds
+    }, 2000); // Replace with your loading time in milliseconds
+  };
 
-  //   const getUser = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:8000/user", {
-  //         params: { userId },
-  //       });
-  //       setUser(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   const getGenderedUsers = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:8000/gendered-users", {
-  //         params: { gender: user?.gender_interest },
-  //       });
-  //       setGenderedUsers(response.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     getUser();
-  //   }, []);
-
-  //   useEffect(() => {
-  //     if (user) {
-  //       getGenderedUsers();
-  //     }
-  //   }, [user]);
-
-  //   const updateMatches = async (matchedUserId) => {
-  //     try {
-  //       await axios.put("http://localhost:8000/addmatch", {
-  //         userId,
-  //         matchedUserId,
-  //       });
-  //       getUser();
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-
-  //   const swiped = (direction, swipedUserId) => {
-  //     if (direction === "right") {
-  //       updateMatches(swipedUserId);
-  //     }
-  //     setLastDirection(direction);
-  //   };
-
-  //   const outOfFrame = (name) => {
-  //     console.log(name + " left the screen!");
-  //   };
-
-  //   const matchedUserIds = user?.matches
-  //     .map(({ user_id }) => user_id)
-  //     .concat(userId);
-
-  //   const filteredGenderedUsers = genderedUsers?.filter(
-  //     (genderedUser) => !matchedUserIds.includes(genderedUser.user_id)
-  //   );
-
-  //   console.log("filteredGenderedUsers ", filteredGenderedUsers);
   return (
     <>
-      {/* <ChatContainer user={user} /> */}
-      <div>Dashboard</div>
-      <div class="dashboard">
-        {/* <ChatContainer user={user} /> */}
-        <ChatContainer />
-        <div className="swipe-container">
-          <div className="card-container">
-            {/* {filteredGenderedUsers?.map((genderedUser) => (
-              <TinderCard
-                className="swipe"
-                key={genderedUser.user_id}
-                onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
-                onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}
-              >
-                <div
-                  style={{ backgroundImage: "url(" + genderedUser.url + ")" }}
-                  className="card"
-                >
-                  <h3>{genderedUser.first_name}</h3>
-                </div>
-              </TinderCard>
-            ))}
-            <div className="swipe-info">
-              {lastDirection ? <p>You swiped {lastDirection}</p> : <p />}
-            </div> */}
-          </div>
+      <div className="dashboard-container" style={{backgroundImage: `url(${backgroundImage})`}}>
+        <div className="start-matching-button-container">
+          <button
+            className={`start-matching-button${showMatchCard ? " card-open" : ""}`}
+            onClick={handleStartMatching}
+            disabled={isMatchingStarted}
+          >
+            {isLoading ? "Loading..." : isMatchingStarted ? "Matching Started" : "Start Matching"}
+          </button>
+          {showMatchCard && (
+            <div className="match-card-overlay">
+              <MatchCard
+                name="John Doe"
+                age="24"
+                interests="Hiking, reading, cooking"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
   );
 };
+
 export default Dashboard;
