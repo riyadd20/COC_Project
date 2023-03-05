@@ -1,6 +1,7 @@
 // console.log("OnBoarding");
 import { useState } from "react";
 import Nav from "../components/Nav";
+import instaLogo from "../images/instagram.png";
 
 const OnBoarding = () => {
   const [formData, setFormData] = useState({
@@ -117,7 +118,7 @@ const OnBoarding = () => {
                 <label htmlFor="more-gender-identity">Other</label>
               </div>
               <div className="show-gender">
-                <label htmlFor="show-gender">Show Gender On My Profile </label>
+                <label htmlFor="show-gender">Show Gender On My Profile    </label>
 
                 <input
                   id="show-gender"
@@ -171,6 +172,17 @@ const OnBoarding = () => {
                 onChange={handleChange}
               />
               <br></br>
+
+              <label htmlFor="socials">My Socials <img className="insta-logo" src={instaLogo}/></label>
+              <input
+                id="socials"
+                type="url"
+                name="socials"
+                placeholder="instagram_username"
+                value={formData.socials}
+                onChange={handleChange}
+              />
+                <br></br>
 
               <hr color="grey" />
 
@@ -370,8 +382,11 @@ const OnBoarding = () => {
                   <label htmlFor="ques6_2">No</label>
                 </div>
               </div>
-
+                <br></br>
               <input type="submit" />
+              <br></br>
+              <br></br>
+              <br></br>
             </section>
 
             {/* <section> }
