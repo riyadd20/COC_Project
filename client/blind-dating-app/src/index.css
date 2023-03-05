@@ -58,9 +58,24 @@ html,body{
   list-style:none;
   display:flex;
   
+  
 }
 
-.nav-items>li{
+.nav-items > li {
+  padding: 10px;
+  color: #F2EBE9;
+  text-decoration: none;
+}
+
+.nav-items > li:hover {
+  cursor: pointer;
+  color: #A5BECC;
+  text-decoration: none;
+}
+
+
+
+/* .nav-items>li{
   padding:10px;
   color:#F2EBE9;
 }
@@ -68,7 +83,7 @@ html,body{
 nav .nav-items>li:hover{
   cursor:pointer;
   color:#A5BECC;
-}
+} */
 
 nav{
   width: 100%;

@@ -16,7 +16,7 @@ const Nav = ({ minimal, setShowModal, showModal, setIsSignUp }) => {
   return (
     <nav>
       <div className="logo-container">
-        <Link to="/home">
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <img className="logo" src={minimal ? colorLogo : whiteLogo} />
         </Link>
       </div>
@@ -28,13 +28,13 @@ const Nav = ({ minimal, setShowModal, showModal, setIsSignUp }) => {
           </Link>
         </li>
         <li>
-          <Link to="/events">
+          <Link to="/events" style={{ textDecoration: "none" }}>
             <p>Events</p>
           </Link>
         </li>
         <li>
-          <Link to="/matchme">
-            <p>Match Me</p>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}>
+            <p>Dashboard</p>
           </Link>
         </li>
       </ul>
