@@ -119,3 +119,52 @@
 button{
   margin: 10px;
 }
+
+/* NEW OVERLAY */
+
+.overlay-text {
+  color: black;
+}
+
+
+.overlay-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.overlay-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.overlay-buttons button {
+  font-size: 1.5rem;
+  padding: 1rem;
+  margin: 0 1rem;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.overlay-buttons button:hover {
+  background-color: #0052a3;
+}
+
+.overlay-buttons button.dont-share {
+  background-color: #ff0000c7;
+  }
+
+  .overlay-buttons button.dont-share:hover {
+    background-color: #ff0000;
+    }
