@@ -1,6 +1,8 @@
 // console.log("OnBoarding");
 import { useState } from "react";
 import Nav from "../components/Nav";
+// import instaLogo from "../images/instagram.png";
+import { Link } from "react-router-dom";
 
 const OnBoarding = () => {
   const [formData, setFormData] = useState({
@@ -168,6 +170,17 @@ const OnBoarding = () => {
                 required={true}
                 placeholder="I like long walks..."
                 value={formData.about}
+                onChange={handleChange}
+              />
+              <br></br>
+
+              <label htmlFor="socials">My Socials</label>
+              <input
+                id="socials"
+                type="text"
+                name="socials"
+                placeholder="instagram_username"
+                value={formData.socials}
                 onChange={handleChange}
               />
               <br></br>
@@ -370,8 +383,9 @@ const OnBoarding = () => {
                   <label htmlFor="ques6_2">No</label>
                 </div>
               </div>
-
-              <input type="submit" />
+              <Link to="/matchme">
+                <input type="submit" />
+              </Link>
             </section>
 
             {/* <section> }

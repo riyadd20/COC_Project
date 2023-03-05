@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./ChatPage.css";
 // import { Redirect } from 'react-router-dom';
 import Home from "./Home";
@@ -6,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav.js";
 
 const Chat = () => {
-  const [timeLeft, setTimeLeft] = useState(5); // 5 minute countdown timer
+  const [timeLeft, setTimeLeft] = useState(15); // 5 minute countdown timer
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const iceBreakers = [
@@ -60,24 +61,24 @@ const Chat = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
 
-//   useEffect(() => {
-//     if (timeLeft <= 0) {
-//     //   alert("Time's up!");
-//     //   navigate("/");
-//     }
-//   }, [timeLeft, navigate]);
-// const navigate = useNavigate();
-const [alertShown, setAlertShown] = useState(false);
+  //   useEffect(() => {
+  //     if (timeLeft <= 0) {
+  //     //   alert("Time's up!");
+  //     //   navigate("/");
+  //     }
+  //   }, [timeLeft, navigate]);
+  // const navigate = useNavigate();
+  const [alertShown, setAlertShown] = useState(false);
 
-useEffect(() => {
-  if (timeLeft <= 0 && !alertShown) {
-    alert("Time's up!");
-    // navigate("/");
-    setAlertShown(true);
-  }
-}, [timeLeft, alertShown]);
+  useEffect(() => {
+    if (timeLeft <= 0 && !alertShown) {
+      alert("Time's up!");
+      // navigate("/");
+      setAlertShown(true);
+    }
+  }, [timeLeft, alertShown]);
   return (
     <>
       {" "}
@@ -98,12 +99,18 @@ useEffect(() => {
             <p>Time left to chat: {timeLeft} seconds</p>
           ) : (
             <div className="overlay-container">
-            <h2 className="overlay-text">Do you want to share your profile?</h2>
-            <div className="overlay-buttons">
-              <button>Share Profile</button>
-              <button className="dont-share">Do Not Share Profile</button>
+              <h2 className="overlay-text">
+                Do you want to share your profile?
+              </h2>
+              <div className="overlay-buttons">
+                <Link to="/events">
+                  <button>Share Profile</button>
+                </Link>
+                <Link to="/matchme">
+                  <button className="dont-share">Do Not Share Profile</button>
+                </Link>
+              </div>
             </div>
-          </div>
             // <p>Time's up</p>
           )}
 

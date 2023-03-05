@@ -1,9 +1,10 @@
 import { useState } from "react";
-const axios = require("axios");
+// const axios = require("axios");
+import { Link } from "react-router-dom";
 // const res = await axios.post("https:sample-endpoint.com/data");
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
-  const [email, setEmail] = useState(null);
+  // const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
@@ -57,7 +58,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
           name="email"
           placeholder="Email"
           required={true}
-          onChange={(e) => setEmail(e.target.value)}
+          // onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
@@ -77,7 +78,9 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         )}
-        <input className="secondary-button" type="submit" />
+        <Link to="/onboarding">
+          <input className="secondary-button" type="submit" />
+        </Link>
         <p>{error}</p>
       </form>
 

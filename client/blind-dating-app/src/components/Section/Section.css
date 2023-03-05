@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
     height: 90vh;
   }
   
@@ -25,8 +25,9 @@
     width: 500px;
   }
   
-  p {
+  body {
     font-size: 1.2rem;
+    text-align: start;
   }
   
   h3{

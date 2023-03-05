@@ -146,7 +146,7 @@ const Dashboard = () => {
               <MatchCard
                 name="John Doe"
                 age="24"
-                interests="Hiking, reading, cooking"
+                interests="Hiking, Reading, Cooking"
               />
             </div>
           )}
