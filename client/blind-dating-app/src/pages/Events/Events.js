@@ -7,8 +7,10 @@ import SmoothScroll from "../../components/SmoothScroll/SmoothScroll";
 const Events = () => {
   return (
     <SmoothScroll>
+      <div className="events-body">
       <h1>Events</h1>
       <Section />
+      </div>
     </SmoothScroll>
   );
 };

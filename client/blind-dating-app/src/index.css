@@ -185,7 +185,7 @@ nav .nav-button:hover{
   font-size: 17px;
 }
 
-/*-------- OnBoarding Page --------*/
+/* OnBoarding */
 .onboarding {
   border-top: solid 1px rgb(213, 213, 213);
 }
@@ -247,7 +247,8 @@ nav .nav-button:hover{
 }
 
 .onboarding form input[type=radio]:checked + label {
-  border: solid 2px rgb(221, 39, 22);
+  border: solid 2px #243A73;
+  /* background:#A5BECC */
 }
 
 .onboarding form input[type=submit]:hover {
@@ -255,10 +256,14 @@ nav .nav-button:hover{
 }
 
 .onboarding form input[type=submit]:active {
-  background-color: rgb(226, 115, 115);
+  background-color: #243A73;
 }
 
-.onboarding form .photo-container img {
+/* .onboarding form .photo-container img {
   width: 100%
+} */
+
+.show-gender{
+  display: inline-block;
 }
 
