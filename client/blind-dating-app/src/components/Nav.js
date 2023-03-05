@@ -33,8 +33,8 @@ const Nav = ({ minimal, setShowModal, showModal, setIsSignUp }) => {
           </Link>
         </li>
         <li>
-          <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-            <p>Dashboard</p>
+          <Link to="/matchme" style={{ textDecoration: 'none' }}>
+            <p>MatchMe</p>
           </Link>
         </li>
       </ul>
