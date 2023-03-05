@@ -12,7 +12,7 @@ const App = () => {
         <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/home" element={<Home />} />
         {/* {authToken &&  */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/matchme" element={<Dashboard />} />
         {/* {authToken &&  */}
         <Route path="/chat" element={<Chat />} />
         <Route path="/events" element={<Events />} />
