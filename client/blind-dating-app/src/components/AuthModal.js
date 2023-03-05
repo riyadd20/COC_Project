@@ -1,14 +1,13 @@
 import { useState } from "react";
-const axios = require("axios");
+// const axios = require("axios");
+import { Link } from "react-router-dom";
 // const res = await axios.post("https:sample-endpoint.com/data");
 
 const AuthModal = ({ setShowModal, isSignUp }) => {
-  const [email, setEmail] = useState(null);
+  // const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
-
-  //   console.log(email, password, confirmPassword);
 
   const handleClick = () => {
     setShowModal(false);
@@ -16,24 +15,40 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      if (isSignUp && password !== confirmPassword) {
-        setError("Passwords need to match!");
-        return;
-      }
-      console.log("make a post request to our database");
-      const axios = require("axios");
+    if (isSignUp) {
+      const data = {
+        email: e.target[0].value,
+        password: e.target[1].value,
+      };
 
-      axios
-        .post("https:sample-endpoint.com/user", {
-          Name: "Fred",
-          Age: "23",
-        })
-        .then(function (response) {
-          console.log(response);
-        });
-    } catch (error) {
-      console.log(error);
+      try {
+        const res = await axios.post(
+          "http://localhost:3000/user/sign-up",
+          data
+        );
+        if (res.data.success) {
+          navigate("/dashboard");
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
+    } else {
+      const data = {
+        email: e.target[0].value,
+        password: e.target[1].value,
+      };
+
+      try {
+        const res = await axios.post(
+          "http://localhost:3000/user/sign-in",
+          data
+        );
+        if (res.data.Success) {
+          navigate("/dashboard");
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
     }
   };
 
@@ -57,7 +72,7 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
           name="email"
           placeholder="Email"
           required={true}
-          onChange={(e) => setEmail(e.target.value)}
+          // onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
@@ -77,7 +92,9 @@ const AuthModal = ({ setShowModal, isSignUp }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         )}
-        <input className="secondary-button" type="submit" />
+        <Link to="/onboarding">
+          <input className="secondary-button" type="submit" />
+        </Link>
         <p>{error}</p>
       </form>
 

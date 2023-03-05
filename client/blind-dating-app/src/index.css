@@ -109,12 +109,14 @@ nav .logo-container{
 nav .nav-button{
   color:#7C3E66;
   background-color:#F2EBE9;
-  font-size: 20px;
+  font-size:20px;
   padding : 8px 15px;
   border-radius: 8px;
   border:none;
   margin:8px;
-  height:80px;
+  max-height: 40px;
+  margin-top: 45px;
+  margin-right: 40px;
 }
 
 nav .nav-button:disabled{
@@ -198,9 +200,9 @@ nav .nav-button:hover{
 
 /* OnBoarding */
 .onb-body{
-  background: #42275a;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   
 color: white;  
 }
@@ -266,7 +268,7 @@ color: white;
 }
 
 .onboarding form input[type=radio]:checked + label {
-  border: solid 2px #243A73;
+  border: solid 2px #ffffff;
   /* background:#A5BECC */
 }
 
@@ -275,7 +277,7 @@ color: white;
 }
 
 .onboarding form input[type=submit]:active {
-  background-color: #243A73;
+  background-color: #ffffff;
 }
 
 /* .onboarding form .photo-container img {
@@ -300,4 +302,12 @@ color: white;
   color: white;
   text-decoration:none;
   margin-bottom: 30px;
+}
+
+/* Instagram */
+
+.insta-logo{
+  margin-top: 5px;
+  height: 20px;
+  width:20px;
 }
