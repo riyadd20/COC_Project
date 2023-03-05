@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import './ChatPage.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./ChatPage.css";
 // import { Redirect } from 'react-router-dom';
-import Home from './Home';
-import { useNavigate } from 'react-router-dom';
-
+import Home from "./Home";
+import { useNavigate } from "react-router-dom";
+import Nav from "../components/Nav.js";
 
 const Chat = () => {
-  const [timeLeft, setTimeLeft] = useState(10); // 5 minute countdown timer
-  const [message, setMessage] = useState('');
+  const [timeLeft, setTimeLeft] = useState(15); // 5 minute countdown timer
+  const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const iceBreakers = [
     "What's your favorite hobby?",
@@ -26,7 +27,7 @@ const Chat = () => {
 
   const closeModal = () => {
     // redirect to another page
-    window.location.href = '/';
+    window.location.href = "/";
   };
   const handleSendMessage = () => {
     if (message.trim()) {
@@ -35,12 +36,12 @@ const Chat = () => {
         isSent: true,
       };
       setMessages([...messages, newMessage]);
-      setMessage('');
+      setMessage("");
     }
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleSendMessage();
     }
   };
@@ -60,77 +61,100 @@ const Chat = () => {
     return () => clearTimeout(timer);
   }, [timeLeft]);
 
-  const navigate = useNavigate();
+  //   const navigate = useNavigate();
+
+  //   useEffect(() => {
+  //     if (timeLeft <= 0) {
+  //     //   alert("Time's up!");
+  //     //   navigate("/");
+  //     }
+  //   }, [timeLeft, navigate]);
+  // const navigate = useNavigate();
+  const [alertShown, setAlertShown] = useState(false);
 
   useEffect(() => {
-    if (timeLeft <= 0) {
+    if (timeLeft <= 0 && !alertShown) {
       alert("Time's up!");
-      navigate('/');
+      // navigate("/");
+      setAlertShown(true);
     }
-  }, [timeLeft, navigate]);
-  
-  
-//   useEffect(() => {
-//     if (timeLeft <= 0) {
-//         alert("Time's Up!");
-//         <Redirect to="/"/>
-//     }
-//   }, [timeLeft]);
-
+  }, [timeLeft, alertShown]);
   return (
-    <> <h2 align='center'>Chatting Page</h2>
-    <h2>Welcome, John Doe!</h2>
-    <div>
-      
-      {/* {timeLeft > 0 ? (
+    <>
+      {" "}
+      <div className="chat-body">
+        <Nav />
+        <h2 className="heading" align="center">
+          Blind Chat
+        </h2>
+        {/* <h2 className="heading">Welcome, John Doe!</h2> */}
+        <div className="time-text">
+          {/* {timeLeft > 0 ? (
         <p>Time left to chat: {timeLeft} seconds</p>
       ) : (
         <p>Time's up</p>
       )} */}
 
-    {timeLeft > 0 ? (
-      <p>Time left to chat: {timeLeft} seconds</p>
-    ) : (
-<p>Time's up</p>    )
-    }
+          {timeLeft > 0 ? (
+            <p>Time left to chat: {timeLeft} seconds</p>
+          ) : (
+            <div className="overlay-container">
+              <h2 className="overlay-text">
+                Do you want to share your profile?
+              </h2>
+              <div className="overlay-buttons">
+                <Link to="/events">
+                  <button>Share Profile</button>
+                </Link>
+                <Link to="/matchme">
+                  <button className="dont-share">Do Not Share Profile</button>
+                </Link>
+              </div>
+            </div>
+            // <p>Time's up</p>
+          )}
 
-
-      <div className="message-container">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${message.isSent ? 'message-sent' : 'message-received'}`}
-          >
-            {message.text}
+          <div className="message-container">
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                className={`message ${
+                  message.isSent ? "message-sent" : "message-received"
+                }`}
+              >
+                {message.text}
+              </div>
+            ))}
           </div>
-        ))}
+          <div className="middle">
+            <div className="message-input">
+              <input
+                type="text"
+                className="input-field"
+                placeholder="Type your message here"
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
+                onKeyPress={handleKeyPress}
+              />
+              <button className="send-button" onClick={handleSendMessage}>
+                Send
+              </button>
+            </div>
+          </div>
+          <div className="ice-breakers">
+            <h3>Conversation Starters:</h3>
+            {iceBreakers.map((iceBreaker, index) => (
+              <button
+                key={index}
+                className="ice-breaker-button"
+                onClick={() => handleIceBreakerClick(iceBreaker)}
+              >
+                {iceBreaker}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="message-input">
-        <input
-          type="text"
-          className="input-field"
-          placeholder="Type your message here"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-          onKeyPress={handleKeyPress}
-        />
-        <button className="send-button" onClick={handleSendMessage}>
-          Send
-        </button>
-      </div>
-      <div className="ice-breakers">
-        <h3>Conversation Starters:</h3>
-        {iceBreakers.map((iceBreaker, index) => (
-          <button
-            key={index}
-            className="ice-breaker-button"
-            onClick={() => handleIceBreakerClick(iceBreaker)}
-          >
-            {iceBreaker}
-          </button>
-        ))}
-      </div>
-    </div>
     </>
   );
 };
