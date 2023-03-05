@@ -5,7 +5,7 @@ h1 {
     color: white;
   }
 
-  body {
+  .events-body {
     margin: 0;
     font-family: "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
       "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

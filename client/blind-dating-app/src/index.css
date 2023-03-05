@@ -90,8 +90,8 @@ nav .logo-container{
 }
 
  .logo{
-  height:50px;
-  width:100px;
+  height:100px;
+  width:120px;
   float:left;
 } 
 
@@ -262,3 +262,12 @@ nav .nav-button:hover{
   width: 100%
 }
 
+/* Navbar */
+
+.nav-items p{
+  margin-right: 20px;
+  padding: 10px;
+  color: white;
+  text-decoration:none;
+  margin-bottom: 30px;
+}
