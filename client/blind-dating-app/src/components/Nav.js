@@ -23,7 +23,7 @@ const Nav = ({ minimal, setShowModal, showModal, setIsSignUp }) => {
 
       <ul className="nav-items">
         <li>
-          <Link to="/profile">
+          <Link to="/onboarding">
             <p>Profile</p>
           </Link>
         </li>
