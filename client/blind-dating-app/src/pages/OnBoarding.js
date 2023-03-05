@@ -128,7 +128,7 @@ const OnBoarding = () => {
                 />
               </div>
               <br></br>
-              <label>My Match Prefrences </label>
+              <label>My Match Preferences </label>
 
               <div className="multiple-input-container">
                 <input

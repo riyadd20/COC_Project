@@ -109,12 +109,14 @@ nav .logo-container{
 nav .nav-button{
   color:#7C3E66;
   background-color:#F2EBE9;
-  font-size: 20px;
+  font-size:20px;
   padding : 8px 15px;
   border-radius: 8px;
   border:none;
   margin:8px;
-
+  max-height: 40px;
+  margin-top: 45px;
+  margin-right: 40px;
 }
 
 nav .nav-button:disabled{
