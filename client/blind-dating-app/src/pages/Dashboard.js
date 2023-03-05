@@ -44,7 +44,6 @@
 
 // Perfectly working basic UI
 
-
 // import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import MatchCard from "./MatchCard";
@@ -101,7 +100,8 @@ import { useNavigate } from "react-router-dom";
 import MatchCard from "./MatchCard";
 import "./Dashboard.css";
 
-const backgroundImage = "https://imgs.search.brave.com/ljxCqHFnBwXcfQwlQsUL2DztfP6qY2j4uPRkBcUf1E0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaW5kZXBlbmRl/bnQuY28udWsvczNm/cy1wdWJsaWMvdGh1/bWJuYWlscy9pbWFn/ZS8yMDE2LzAzLzE5/LzE4L3dlYi1kYXRp/bmctbWF0Y2gtcmV4/LmpwZw";
+const backgroundImage =
+  "https://imgs.search.brave.com/ljxCqHFnBwXcfQwlQsUL2DztfP6qY2j4uPRkBcUf1E0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9zdGF0/aWMuaW5kZXBlbmRl/bnQuY28udWsvczNm/cy1wdWJsaWMvdGh1/bWJuYWlscy9pbWFn/ZS8yMDE2LzAzLzE5/LzE4L3dlYi1kYXRp/bmctbWF0Y2gtcmV4/LmpwZw";
 
 const Dashboard = () => {
   const [showMatchCard, setShowMatchCard] = useState(false);
@@ -123,14 +123,23 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dashboard-container" style={{backgroundImage: `url(${backgroundImage})`}}>
+      <div
+        className="dashboard-container"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
         <div className="start-matching-button-container">
           <button
-            className={`start-matching-button${showMatchCard ? " card-open" : ""}`}
+            className={`start-matching-button${
+              showMatchCard ? " card-open" : ""
+            }`}
             onClick={handleStartMatching}
             disabled={isMatchingStarted}
           >
-            {isLoading ? "Loading..." : isMatchingStarted ? "Matching Started" : "Start Matching"}
+            {isLoading
+              ? "Loading..."
+              : isMatchingStarted
+              ? "Matching Started"
+              : "Start Matching"}
           </button>
           {showMatchCard && (
             <div className="match-card-overlay">
