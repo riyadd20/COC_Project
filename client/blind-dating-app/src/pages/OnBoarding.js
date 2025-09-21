@@ -1,11 +1,11 @@
 // console.log("OnBoarding");
-import { useState } from "react";
+import { useState } from "react";  
 import Nav from "../components/Nav";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const OnBoarding = () => {
-  const data = {
+  const formData = {
     name: "Joseph Mathhews",
     gender: "Male",
     gender_interest: "Female",
@@ -62,7 +62,7 @@ const OnBoarding = () => {
               name="first_name"
               placeholder="Name"
               required={true}
-              value={formData.first_name}
+            //   value={formData.first_name}
               onChange={handleChange}
             />
             <br></br>
